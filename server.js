@@ -16,4 +16,6 @@ io.on("connection",function(socket){
         socket.broadcast.emit("chat",message)
     });
 });
-server.listen(5000);
+server.listen(process.env.PORT,()=>{
+    console.log("listening on port "+process.env.PORT);
+});
