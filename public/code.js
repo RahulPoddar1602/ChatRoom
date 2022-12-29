@@ -30,7 +30,7 @@
         app.querySelector(".chat-screen #message-input").value="";
     });
     app.querySelector(".chat-screen #exit-chat").addEventListener("click",function(){
-        socket.emit("exituser",username);
+        socket.emit("exituser",username)
         window.location.href=window.location.href;
     })
     socket.on("update",function(update){
