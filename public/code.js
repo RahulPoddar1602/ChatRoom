@@ -29,6 +29,27 @@
         })
         app.querySelector(".chat-screen #message-input").value="";
     });
+    app.querySelector(".chat-screen #message-input").addEventListener("keypress",function(event){
+        if(event.key=="Enter")
+        {
+            event.preventDefault();
+            let message= app.querySelector(".chat-screen #message-input").value;
+        if(message.length==0)
+        {
+            return;
+        }
+        renderMessage("my",{
+            username:uname,
+            text:message
+        });
+        socket.emit("chat",{
+            username:uname,
+            text:message
+        })
+        app.querySelector(".chat-screen #message-input").value="";
+        }
+        
+    });
     app.querySelector(".chat-screen #exit-chat").addEventListener("click",function(){
         socket.emit("exituser",username)
         window.location.href=window.location.href;
