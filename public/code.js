@@ -51,7 +51,7 @@
         
     });
     app.querySelector(".chat-screen #exit-chat").addEventListener("click",function(){
-        socket.emit("exituser",username)
+        socket.emit("exituser",uname)
         window.location.href=window.location.href;
     })
     socket.on("update",function(update){
